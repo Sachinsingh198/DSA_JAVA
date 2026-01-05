@@ -56,6 +56,8 @@ public class Implementation {
         Node f = new Node(6);
         Node g = new Node(9);
 
+
+
         a.left = b;
         a.right = c;
         b.left = d;
