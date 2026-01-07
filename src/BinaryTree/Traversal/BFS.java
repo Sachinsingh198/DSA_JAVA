@@ -44,6 +44,9 @@ public class BFS {
             if(node.right != null) q.add(new Pair(node.right, level + 1));
         }
     }
+    private static int level(Node root){
+        return (root == null) ? 0 : 1 + Math.max(level(root.right), level(root.left));
+    }
 
     private static void kThLevel(Node root, int level, int k){
         if(root == null) return;
@@ -68,6 +71,10 @@ public class BFS {
         c.right = g;
 
 //        levelOrderBfs(a);
-        kThLevel(a, 0, 2);
+        for(int i = 0; i < level(a); i++){
+            kThLevel(a, 0, i);
+            System.out.println();
+        }
+//        kThLevel(a, 0, 2);
     }
 }
