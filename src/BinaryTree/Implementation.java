@@ -1,5 +1,7 @@
 package BinaryTree;
 
+import java.util.ArrayList;
+
 public class Implementation {
     private static void preorder(Node node){
         if(node == null) {
@@ -47,6 +49,41 @@ public class Implementation {
     private static int level(Node root){
         return (root == null) ? 0 : 1 + Math.max(level(root.right), level(root.left));
     }
+
+
+
+    public static ArrayList<ArrayList<Integer>> printPaths(Node root, int sum) {
+        ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
+        ArrayList<Integer> arr = new ArrayList<>();
+        dfs(root, arr, ans, sum);
+        return ans;
+    }
+
+    private static void dfs(Node root, ArrayList<Integer> arr, ArrayList<ArrayList<Integer>> ans, int sum) {
+        if (root == null) return;
+
+        // choose
+        arr.add(root.val);
+
+        // If it's a leaf, check sum once and add exactly one copy if it matches
+        if (root.left == null && root.right == null) {
+            if (sum - root.val == 0) {
+                ans.add(new ArrayList<>(arr));
+            }
+            // backtrack and return
+            arr.remove(arr.size() - 1);
+            return;
+        }
+
+        // explore
+        dfs(root.left, arr, ans, sum - root.val);
+        dfs(root.right, arr, ans, sum - root.val);
+
+        // unchoose (backtrack)
+        arr.remove(arr.size() - 1);
+    }
+
+
     public static void main(String[] args) {
         Node a = new Node(3);
         Node b = new Node(4);
@@ -68,6 +105,14 @@ public class Implementation {
         preorder(a);System.out.println();
         inorder(a);System.out.println();
         postOrder(a);System.out.println();
+
+        ArrayList<ArrayList<Integer>> ans = printPaths(a, 9);
+        for(ArrayList<Integer> arr : ans){
+            for(Integer el: arr){
+                System.out.print(el + " ");
+            }
+            System.out.println();
+        }
 //        System.out.println();
 //        System.out.println(size(a));
 //        System.out.println(sum(a));
