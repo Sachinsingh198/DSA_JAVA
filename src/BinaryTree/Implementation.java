@@ -71,7 +71,7 @@ public class Implementation {
                 ans.add(new ArrayList<>(arr));
             }
             // backtrack and return
-            arr.remove(arr.size() - 1);
+            arr.removeLast();
             return;
         }
 
@@ -80,7 +80,7 @@ public class Implementation {
         dfs(root.right, arr, ans, sum - root.val);
 
         // unchoose (backtrack)
-        arr.remove(arr.size() - 1);
+        arr.removeLast();
     }
 
 
