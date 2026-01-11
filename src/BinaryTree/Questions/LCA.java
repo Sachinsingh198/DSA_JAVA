@@ -3,8 +3,6 @@ package BinaryTree.Questions;
 import BinaryTree.Node;
 
 public class LCA {
-    public static boolean  isExistA;
-    public static boolean isExistB;
     public static Node lowestCommonAncestor(Node root, int p, int q){
         if(root == null) return null;
         if(root.val == p || root.val == q) return root;
