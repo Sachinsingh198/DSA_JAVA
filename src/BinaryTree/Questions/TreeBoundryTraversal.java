@@ -7,9 +7,11 @@ import java.util.ArrayList;
 public class TreeBoundryTraversal {
     private static ArrayList<Integer> boundryTraversal(Node root) {
         ArrayList<Integer> ans = new ArrayList<>();
-        leftBoundry(root, ans);
+        ans.add(root.val);
+        leftBoundry(root.left, ans);
+        if(root.left == null && root.right == null) return ans;
         leafNodes(root, ans);
-        rightBoundry(root, ans);
+        rightBoundry(root.right, ans);
         return ans;
     }
 
