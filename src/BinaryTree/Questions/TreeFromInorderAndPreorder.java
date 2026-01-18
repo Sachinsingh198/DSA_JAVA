@@ -105,5 +105,4 @@ public class TreeFromInorderAndPreorder {
         System.out.println("Level Order (each line is a level):");
         printLevelOrder(root2);
     }
-
 }
