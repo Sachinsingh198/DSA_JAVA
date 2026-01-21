@@ -1,0 +1,34 @@
+package BinarySearchTree;
+
+import BinaryTree.Node;
+
+import java.util.ArrayList;
+
+class Pair{
+    int max, min;
+    Pair(int max, int min){
+        this.max = max;
+        this.min = min;
+    }
+}
+
+public class ValidateBstMaxMin {
+    static boolean flag;
+    public boolean isBST(Node root) {
+        flag = true;
+        return flag;
+    }
+    Pair maxMin(Node root){
+        if(root == null) return new Pair(Integer.MIN_VALUE, Integer.MAX_VALUE);
+        Pair lst = maxMin(root.left);
+        Pair rst = maxMin(root.right);
+        int max = Math.max(root.val, Math.max(lst.max, rst.max));
+        int min = Math.min(root.val , Math.min(lst.min, rst.min));
+        if(lst.max >= root.val || rst.min <= root.val) flag = false;
+        return new Pair(max, min);
+    }
+
+    public static void main(String[] args) {
+        Node root = new Node(8);
+    }
+}
