@@ -1,5 +1,7 @@
 package BitManipulation;
 
+import java.util.List;
+
 public class MinBitwiseArray {
     public int[] minBitwiseArray(List<Integer> nums) {
         int n = nums.size();
