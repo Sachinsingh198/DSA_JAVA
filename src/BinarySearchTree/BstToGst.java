@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class BstToGst {
-
-    public static void transformTree(Node root){
+    static int sum;
+    public static Node transformTree(Node root){
         ArrayList<Node> arr = new ArrayList<>();
         inorder(root, arr);
         Collections.reverse(arr);
@@ -17,6 +17,22 @@ public class BstToGst {
             arr.get(i).val  = sum;
 
         }
+        return root;
+    }
+
+    public static Node transformTreeMemoryEfficeint(Node root){
+        sum = 0;
+        reverseInorder(root);
+        return root;
+    }
+
+    private static void reverseInorder(Node root) {
+        if(root == null) return;
+        reverseInorder(root.right);
+        sum += root.val;
+        root.val = sum;
+        reverseInorder(root.left);
+
     }
 
     private static void inorder(Node root, ArrayList<Node> arr) {
