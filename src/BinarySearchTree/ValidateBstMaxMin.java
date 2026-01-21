@@ -16,6 +16,7 @@ public class ValidateBstMaxMin {
     static boolean flag;
     public boolean isBST(Node root) {
         flag = true;
+        maxMin(root);
         return flag;
     }
     Pair maxMin(Node root){
