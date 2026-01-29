@@ -1,5 +1,7 @@
 package GRAPH;
 
+import java.util.Arrays;
+
 public class MinCostToConvertString {
     public long minimumCost(String source, String target, char[] original, char[] changed, int[] cost) {
         int ALPHABET = 26;
@@ -42,5 +44,5 @@ public class MinCostToConvertString {
         }
 
         return total;
-    }g
+    }
 }
