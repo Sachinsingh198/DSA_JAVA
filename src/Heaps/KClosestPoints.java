@@ -1,6 +1,7 @@
 package Heaps;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.PriorityQueue;
 class Triplet implements Comparable<Triplet>{
     int dist, x, y;
@@ -16,7 +17,7 @@ class Triplet implements Comparable<Triplet>{
 }
 public class KClosestPoints {
     public ArrayList<ArrayList<Integer>> kClosest(int[][] points, int k) {
-        PriorityQueue<Triplet> pq = new PriorityQueue<>();
+        PriorityQueue<Triplet> pq = new PriorityQueue<>(Collections.reverseOrder());
         for(int[] point : points){
             int x = point[0];
             int y = point[1];
