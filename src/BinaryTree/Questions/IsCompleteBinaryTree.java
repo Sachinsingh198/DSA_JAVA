@@ -18,5 +18,4 @@ public class IsCompleteBinaryTree {
         if (root == null) return 0;
         return 1 + size(root.left) + size(root.right);
     }
-
 }
