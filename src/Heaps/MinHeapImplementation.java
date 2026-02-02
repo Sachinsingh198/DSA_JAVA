@@ -5,7 +5,13 @@ import java.util.Arrays;
 class Heap{
     int[] arr;
     int idx = 1;
-    int peek(){return arr[1];}
+    int peek(){
+        if(size() == 0){
+            System.out.println("Heap is Empty!");
+            return -1;
+        }
+        return arr[1];
+    }
 
     void add(int ele){
         if(idx == arr.length) {
