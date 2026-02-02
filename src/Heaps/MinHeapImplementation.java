@@ -8,6 +8,10 @@ class Heap{
     int peek(){return arr[1];}
 
     void add(int ele){
+        if(idx == arr.length) {
+            System.out.println("Heap is full");
+            return;
+        }
         arr[idx++] = ele;
         //rearrangement
         int root = idx - 1;
