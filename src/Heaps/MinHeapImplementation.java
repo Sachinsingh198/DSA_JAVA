@@ -1,4 +1,7 @@
 package Heaps;
+
+import java.util.Arrays;
+
 class Heap{
     int[] arr;
     int idx = 1;
@@ -20,6 +23,38 @@ class Heap{
         }
     }
 
+    int remove(){
+        if(idx == 1){
+            System.out.println("Heap is Empty");
+            return -1;
+        }
+        int min = arr[1];
+        arr[1] = arr[idx - 1];
+        idx--;
+        // rearrangement
+        int root = 1;
+        while(root <= size()){
+            int left = 2 * root, right = 2 * root  + 1;
+            int leftVal = (left <= size() ? arr[left] : Integer.MAX_VALUE);
+            int rightVal = (right <= size() ? arr[right] : Integer.MAX_VALUE);
+            if(arr[root] < leftVal && arr[root] < rightVal) break;
+            else {
+                int temp = arr[root];
+                if(leftVal > rightVal){ // swap with the left child
+                    arr[root] = arr[left];
+                    arr[left] = temp;
+                    root = left;
+                }
+                else { // swap with the right child
+                    arr[root] = arr[right];
+                    arr[right] = temp;
+                    root = right;
+                }
+            }
+        }
+        return min;
+    }
+
     void display(){
         for(int i = 1; i < idx; i++){
             System.out.print(arr[i] + " ");
@@ -31,7 +66,10 @@ class Heap{
         return idx - 1;
     }
 
-    Heap(int capacity){arr = new int[capacity + 1];}
+    Heap(int capacity){
+        arr = new int[capacity + 1];
+        Arrays.fill(arr, Integer.MAX_VALUE);
+    }
 }
 public class MinHeapImplementation {
     public static void main(String[] args) {
@@ -42,6 +80,8 @@ public class MinHeapImplementation {
         h.add(7);
         h.add(4);
         h.add(5);
+        h.display();
+        System.out.println(h.remove());
         h.display();
     }
 }
