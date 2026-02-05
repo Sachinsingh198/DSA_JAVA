@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.List;
 
 public class MissingElementInRange {
+
+    //GfG
     public static ArrayList<Integer> missingRange(int[] arr, int low, int high){
         ArrayList<Integer> ans = new ArrayList<>();
         HashSet<Integer> set = new HashSet<>();
@@ -17,6 +19,8 @@ public class MissingElementInRange {
         }
         return ans;
     }
+
+    //Leetcode
     public List<Integer> findMissingElements(int[] arr) {
         List<Integer> ans = new ArrayList<>();
         HashSet<Integer> set = new HashSet<>();
