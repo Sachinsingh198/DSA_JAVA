@@ -13,5 +13,10 @@ public class Maps_STL {
         map.put("Aditya", 21);
         System.out.println(map + " " + map.size());
         System.out.println(map.containsKey("Vivek"));
+
+        for(String key : map.keySet()){
+            System.out.println(key + " " + map.get(key));
+
+        }
     }
 }
