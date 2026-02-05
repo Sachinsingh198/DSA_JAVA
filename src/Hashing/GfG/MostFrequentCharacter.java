@@ -12,7 +12,7 @@ public class MostFrequentCharacter {
         }
 
         int maxFreq = 0;
-        char ans = s.charAt(0);
+        char ans = 'z';
 
         for(char ch : map.keySet()){
             int freq = map.get(ch);
