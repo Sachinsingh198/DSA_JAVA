@@ -1,15 +1,20 @@
 package Hashing.GfG;
-import java.util.HashSet;
+import java.util.HashMap;
 public class PairsWithDiffK {
     int countPairs(int[] arr, int k) {
-        HashSet<Integer> set = new HashSet<>();
-        int count = 0;
+        HashMap<Integer, Integer> map = new HashMap<>();
         for(int el : arr){
-            int rem = el - k;
-            if(set.contains(rem)) count++;
-            set.add(el);
+            map.put(el, map.getOrDefault(el, 0) + 1);
         }
-        return count;
+        int pairs = 0;
+        for(int el : map.keySet()){
+            int rem1 = el - k;
+            int rem2 = el + k;
+            if(map.containsKey(rem1)) pairs += (map.get(el) * map.get(rem1));
+            if(map.containsKey(rem2)) pairs += (map.get(el) * map.get(rem2));
+        }
+        pairs/=2;
+        return pairs;
     }
     public static void main(String[] args) {
 
