@@ -5,11 +5,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
-
-class Pair{
+class Pair2{
     Node node;
     int dist;
-    Pair(Node node, int dist){
+    Pair2(Node node, int dist){
         this.node = node;
         this.dist = dist;
     }
@@ -18,19 +17,19 @@ public class BottomViewBinaryTree {
     public ArrayList<Integer> bottomView(Node root) {
         ArrayList<Integer> ans = new ArrayList<>();
         HashMap<Integer, Integer> map = new HashMap<>();// <Horizontal distance, node data>>
-        Queue<Pair> q = new LinkedList<>();
-        q.add(new Pair(root, 0));
+        Queue<Pair2> q = new LinkedList<>();
+        q.add(new Pair2(root, 0));
         int minDist = Integer.MAX_VALUE;
         int maxDist = Integer.MIN_VALUE;
         while(!q.isEmpty()){
-            Pair front = q.remove();
+            Pair2 front = q.remove();
             Node node = front.node;
             int dist = front.dist;
             minDist = Math.min(dist, minDist);
             maxDist = Math.max(dist, maxDist);
             map.put(dist, node.val);
-            if(node.left != null) q.add(new Pair(node.left, dist - 1));
-            if(node.right != null) q.add(new Pair(node.right, dist + 1));
+            if(node.left != null) q.add(new Pair2(node.left, dist - 1));
+            if(node.right != null) q.add(new Pair2(node.right, dist + 1));
         }
         for(int i = minDist; i <=maxDist; i++){
             ans.add(map.get(i));
