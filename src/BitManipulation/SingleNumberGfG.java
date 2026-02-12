@@ -4,15 +4,10 @@ import java.util.HashMap;
 
 public class SingleNumberGfG {
     int getSingle(int nums[]) {
-        HashMap<Integer, Integer> map = new HashMap<>();
+        int xor = 0;
         for(int el : nums){
-            map.put(el, map.getOrDefault(el, 0) + 1);
+            xor = xor ^ el;
         }
-        for(int key : map.keySet()){
-            if(map.get(key) %2 != 0){
-                return key;
-            }
-        }
-        return -1;
+        return xor;
     }
 }
