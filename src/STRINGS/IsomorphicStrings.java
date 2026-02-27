@@ -20,9 +20,10 @@ public class IsomorphicStrings {
 //        }
 //        return true;
 
-        HashMap<Character, Character> hm = new HashMap<Character, Character>();
-        for(int i=0; i < s.length(); i++){
-            if(hm.containsKey(s.charAt(i)))
-        }
+//        HashMap<Character, Character> hm = new HashMap<Character, Character>();
+//        for(int i=0; i < s.length(); i++){
+//            if(hm.containsKey(s.charAt(i)))
+//        }
+        return true;
     }
 }
