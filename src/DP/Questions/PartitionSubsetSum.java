@@ -27,7 +27,7 @@ public class PartitionSubsetSum {
         if(sum % 2 != 0) return false;
 
         int target = sum/2;
-        int[][] dp = new int[arr.length][target + 1];
+        int[][] dp = new int[nums.length][target + 1];
         for(int i = 0; i < dp.length; i++){
             for(int j = 0; j < dp[0].length; j++){
                 dp[i][j] = -1;
