@@ -1,7 +1,6 @@
 package DP.Questions;
 
-public class SubsetSum {
-
+public class PartitionSubsetSum {
     private static boolean subset(int idx,int[] arr, int target, int[][] dp) {
         if(idx == arr.length){
             if(target == 0) return true;
@@ -20,18 +19,20 @@ public class SubsetSum {
         dp[idx][target] = (ans) ? 1 : 0;
         return ans;
     }
+    public static boolean canPartition(int[] nums){
+        int sum = 0;
+        for(int el : nums){
+            sum += el;
+        }
+        if(sum % 2 != 0) return false;
 
-    public static void main(String[] args) {
-        int[] arr = {8, 5, 2, 4};
-        int target = 9;
+        int target = sum/2;
         int[][] dp = new int[arr.length][target + 1];
         for(int i = 0; i < dp.length; i++){
             for(int j = 0; j < dp[0].length; j++){
                 dp[i][j] = -1;
             }
         }
-        System.out.println(subset(0, arr, target, dp));
+       return subset(0, nums, target, dp);
     }
-
-
 }
