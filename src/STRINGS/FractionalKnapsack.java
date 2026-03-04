@@ -23,6 +23,6 @@ public class FractionalKnapsack {
                 dp[i][j] = -1;
             }
         }
-        System.out.println(profit(0, C, val, wt, dp));
+        System.out.println(profit(n-1, C, val, wt, dp));
     }
 }
