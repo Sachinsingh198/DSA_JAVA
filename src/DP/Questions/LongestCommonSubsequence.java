@@ -12,13 +12,22 @@ public class LongestCommonSubsequence {
             return  dp[i][j] = Math.max(lcs(i, j - 1, a, b, dp), lcs(i-1, j, a, b, dp));
         }
     }
-    public static int longestCommonSubsequence(String text1, String text2) {
-        int m = text1.length(), n = text2.length();
-        StringBuilder a = new StringBuilder(text1);
-        StringBuilder b = new StringBuilder(text2);
-        int[][] dp = new int[m][n];
-        for (int[] row : dp) Arrays.fill(row, -1);
-        return lcs(m - 1, n - 1, a, b, dp);
+    public static int longestCommonSubsequence(String a, String b) {
+        int m = a.length(), n = b.length();
+        int[][] dp = new int[m + 1][n + 1];
+//        for (int[] row : dp) Arrays.fill(row, -1);
+//        return lcs(m - 1, n - 1, a, b, dp);
+
+        // Using Tabulation
+        for(int i = 1;i <= m; i++){
+            for (int j = 1;j <= n; j++){
+                if(a.charAt(i - 1) == b.charAt(j - 1)) dp[i][j] =  1 + dp[i-1][j-1];
+                else {
+                    dp[i][j] = Math.max(dp[i][j-1], dp[i-1][j]);
+                }
+            }
+        }
+        return dp[m][n];
     }
     public static void main(String[] args) {
 
