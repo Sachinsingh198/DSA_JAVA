@@ -20,7 +20,7 @@ public class LongestCommonSupersequence {
             if(a.charAt(i-1) == b.charAt(j-1)){
                 ans.append(a.charAt(i - 1));
                 i--;
-                j--
+                j--;
             }
 
             else if(dp[i-1][j] > dp[i][j - 1]) i--;
