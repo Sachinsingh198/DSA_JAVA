@@ -55,9 +55,6 @@ public class LongestCommonSupersequence {
             scs.append(a.charAt(i));
             i++;
         }
-
-
-
         return scs.toString();
     }
 }
