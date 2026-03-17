@@ -1,20 +1,30 @@
 package DP.Questions;
 
+i
 import BinaryTree.Node;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class DiameterBST {
-    static int dia ;
-    public int levels(Node root){
+    static Map<Node, Integer> dp;
+    public int levels(BinaryTree.Node root){
         if(root == null) return 0;
+        if(dp.containsKey(root)) return dp.get(root);
         int leftLevels = levels(root.left);
         int rightLevels = levels(root.right);
-        int path  = leftLevels + rightLevels;
-        dia = Math.max(dia, path);
-        return 1 + Math.max(leftLevels, rightLevels);
+        dp.put(root,1 + Math.max(leftLevels, rightLevels));
+        return dp.get(root);
     }
-    public int diameterOfBinaryTree(Node root) {
-        dia = 0;
-        levels(root);
-        return dia;
+    public int diameter(Node root) {
+        if(root == null) return 0;
+        int myDia = levels(root.left) + levels(root.right);
+        int left  = diameter(root.left);
+        int right = diameter(root.right);
+        return Math.max(myDia, Math.max(left, right));
+    }
+    public int diameterOfBinary(Node root) {
+        dp = new HashMap<>();
+        return diameter(root);
     }
 }
