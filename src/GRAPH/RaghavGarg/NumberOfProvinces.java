@@ -4,6 +4,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class NumberOfProvinces {
+
+    // Using BFS
     public void bfs(int i, boolean[] vis, int[][] adj){
         vis[i] = true;
         Queue<Integer> q = new LinkedList<>();
@@ -34,6 +36,8 @@ public class NumberOfProvinces {
         return count;
     }
 
+
+    // Using DFS
     private void dfs(int i, boolean[] vis, int[][] adj) {
         vis[i] = true;
         for(int j = 0; j < adj.length; j++){
