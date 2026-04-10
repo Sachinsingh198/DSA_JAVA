@@ -15,7 +15,6 @@ public class Intersection {
         Node next;
         Node(int d){
             data = d;
-
         }
     }
 
